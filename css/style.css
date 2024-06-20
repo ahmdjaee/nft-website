@@ -391,6 +391,9 @@ a {
     height: 560px;
     object-fit: cover;
     background-image: url("../assets/images/NFT Highlight.png");
+    background-size: cover;
+    background-position: center;
+    
 }
 
 .nft-highlight-content {

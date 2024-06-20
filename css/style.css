@@ -310,12 +310,12 @@ a {
 .browse-category-card {
     background-color: var(--secondary);
     border-radius: 20px;
+    cursor: pointer;
 }
 
 .image-categories {
     background-size: cover;
     background-position: center;
-    background-image: url(../assets/images/Image\ Placeholder-1.png);
     height: 250px;
     border-radius: 20px 20px 0 0;
 }

@@ -42,7 +42,7 @@ const categories = [
     { name: 'Photography', imgSrc: 'assets/button-icons/Camera.svg', bgUrl: 'assets/images/Image\ Placeholder-3.png' },
     { name: 'Video', imgSrc: 'assets/button-icons/VideoCamera.svg', bgUrl: 'assets/images/Image\ Placeholder-4.png' },
     { name: 'Utilty', imgSrc: 'assets/button-icons/MagicWand.svg', bgUrl: 'assets/images/Image\ Placeholder-5.png' },
-    { name: 'Sport', imgSrc: 'assets/button-icons/BasketBall.svg', bgUrl: 'assets/images/Image\ Placeholder-6.png' },
+    { name: 'Sport', imgSrc: 'assets/button-icons/Basketball.svg', bgUrl: 'assets/images/Image\ Placeholder-6.png' },
     { name: 'Virtual Worlds', imgSrc: 'assets/button-icons/Planet.svg', bgUrl: 'assets/images/Image\ Placeholder-7.png' },
 ];
 

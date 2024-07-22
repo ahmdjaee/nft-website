@@ -1,3 +1,3 @@
-Tugas web dasar,
+Tugas web dasar, landing page website nft menggunakan html css javascript
 
-demo https://nft-website-navy.vercel.app/ 
+Demo https://nft-website-navy.vercel.app/ 

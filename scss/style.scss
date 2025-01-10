@@ -1,0 +1,588 @@
+@use "util" as u;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --background: #2b2b2b;
+  --secondary: #3b3b3b;
+  --primary: #a259ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+}
+
+body {
+  height: 100vh;
+  font-family: u.$font;
+  background-color: var(--background);
+}
+
+h1 {
+  font-size: clamp(u.rem(28), 5vw, u.rem(67));
+}
+
+h2 {
+  font-size: clamp(u.rem(24), 4vw, u.rem(51));
+}
+
+h3 {
+  font-size: clamp(u.rem(20), 3vw, u.rem(38));
+}
+
+h4 {
+  font-size: clamp(u.rem(16), 2.5vw, u.rem(24));
+}
+
+h5 {
+  font-size: clamp(u.rem(14), 2vw, u.rem(20));
+}
+
+p {
+  font-size: clamp(u.rem(12), 1.5vw, u.rem(16));
+}
+
+@media (min-width: 1050px) {
+  .container {
+    max-width: 1050px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 960px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 768px;
+    @include u.breakpoint-down("small") {
+      padding-inline: 24px;
+    }
+  }
+}
+
+.animation-transform {
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.animation-transform:hover {
+  transform: scale(1.05);
+}
+
+a {
+  text-decoration: none;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.navbar {
+  display: flex;
+  padding-block: 1rem;
+  padding-inline: 4rem;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--background);
+
+  @include u.breakpoint-down("small") {
+    padding-inline: 16px;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 2rem;
+
+  @include u.breakpoint-down("medium") {
+    display: none;
+  }
+}
+
+.btn {
+  background-color: var(--primary);
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border-radius: 1.5rem;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  font-weight: 600;
+  width: fit-content;
+  border: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--primary);
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.item-start {
+  align-items: start;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+/*--------------------------------------------------------------------------------
+ * ANCHOR HERO 
+ * --------------------------------------------------------------------------------*/
+.hero {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 6rem;
+  align-items: center;
+  margin-top: 2rem;
+
+  @include u.breakpoint-down("small") {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 2rem;
+  }
+
+  #additionalInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .btn {
+      @include u.breakpoint-down("small") {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.hero-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero-additional-info {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+
+  @include u.breakpoint-down("small") {
+    justify-content: space-between;
+  }
+}
+
+.hero-highlight {
+  display: flex;
+  justify-self: end;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--secondary);
+  border-radius: 36px;
+}
+
+.hero-highlight-info {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nft-creator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+}
+
+/*--------------------------------------------------------------------------------
+ * ANCHOR TRENDING COLLECTION 
+ * --------------------------------------------------------------------------------*/
+.trending-collection {
+  margin-top: 8rem;
+}
+
+.trending-collection-layout {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+
+  @include u.breakpoint-down(medium) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include u.breakpoint-down(small) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+.trending-card {
+  margin-top: 2rem;
+  width: 100%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.trending-card img {
+  width: 100%;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.trending-card img:hover {
+  transform: scale(1.05);
+}
+
+.trending-card-info {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: center;
+}
+
+.trending-card-info img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+/*--------------------------------------------------------------------------------
+ * ANCHOR TOP CREATOR 
+ * --------------------------------------------------------------------------------*/
+.top-creator {
+  margin-top: 8rem;
+}
+
+.top-creator-layout {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2rem;
+
+  @include u.breakpoint-down(small) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+.top-creator-card {
+  background-color: var(--secondary);
+  border-radius: 20px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.badge {
+  background-color: var(--background);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: small;
+  border-radius: 100%;
+}
+
+/*--------------------------------------------------------------------------------
+ * ANCHOR BROWSE CATEGORY 
+ * --------------------------------------------------------------------------------*/
+.browse-category {
+  margin-top: 8rem;
+}
+
+.browse-category-layout {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2rem;
+
+  @include u.breakpoint-down(small) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: u.rem(20);
+  }
+}
+
+.browse-category-card {
+  background-color: var(--secondary);
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.image-categories {
+  background-size: cover;
+  background-position: center;
+  height: 250px;
+  border-radius: 20px 20px 0 0;
+}
+
+.bg-blur {
+  backdrop-filter: blur(5px);
+  border-radius: inherit;
+  width: inherit;
+  height: inherit;
+  display: flex;
+  justify-content: center;
+}
+
+.image-categories img {
+  width: 6rem;
+}
+
+.browse-category-card h5 {
+  padding-inline: 2rem;
+  padding-block: 1.5rem;
+}
+
+/*--------------------------------------------------------------------------------
+ * ANCHOR DISCOVER 
+ * --------------------------------------------------------------------------------*/
+.discover {
+  margin-top: 8rem;
+}
+
+.discover-layout {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+
+  @include u.breakpoint-down(medium) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @include u.breakpoint-down(small) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+.discover-card {
+  background-color: var(--secondary);
+  border-radius: 20px;
+}
+
+.discover-card img {
+  width: 100%;
+  object-fit: cover;
+  background-position: center;
+}
+
+.discover-card-info {
+  padding-inline: 2rem;
+  padding-block: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.discover-card-price {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*--------------------------------------------------------------------------------
+ * ANCHOR NFT HIGHLIGHT 
+ * --------------------------------------------------------------------------------*/
+.nft-highlight {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  margin-top: 8rem;
+  height: 560px;
+  object-fit: cover;
+  background-image: url("../assets/images/NFT Highlight.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.nft-highlight-content {
+  display: flex;
+  padding-inline: 14rem;
+  padding-bottom: 3rem;
+  padding-top: 20rem;
+  justify-content: space-between;
+
+  @include u.breakpoint-down(small) {
+    padding-inline: u.rem(24);
+    margin-block: auto;
+  }
+}
+
+.nft-highlight-action {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.nft-highlight-card {
+  padding: 1rem;
+  height: fit-content;
+  background-color: rgba(30, 30, 30, 0.634);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bg-linear-gradient {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, var(--primary) 100%);
+  width: inherit;
+  height: inherit;
+}
+
+/*--------------------------------------------------------------------------------
+ * ANCHOR HOW IT WORK 
+ * --------------------------------------------------------------------------------*/
+.how-it-work {
+  margin-top: 780px;
+}
+
+.how-it-work-layout {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+
+  @include u.breakpoint-down(small) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+.how-it-work-card {
+  background-color: var(--secondary);
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.join-our-weekly {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: 2rem;
+  margin-top: 8rem;
+  padding: 4rem;
+  background-color: var(--secondary);
+  border-radius: 20px;
+
+  @include u.breakpoint-down(small) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+.join-our-weekly img {
+  width: 100%;
+}
+
+.join-our-weekly-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-right: 3rem;
+}
+
+.join-our-weekly-content p {
+  font-size: 22px;
+}
+
+/*--------------------------------------------------------------------------------
+ * ANCHOR FOOTER 
+ * --------------------------------------------------------------------------------*/
+footer {
+  margin-top: 8rem;
+  padding-block: 3rem;
+  width: 100%;
+  background-color: var(--secondary);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 35% 20% 35%;
+  gap: 2rem;
+  padding-inline: 2rem;
+
+  @include u.breakpoint-down(medium) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @include u.breakpoint-down(small) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+.footer-content-first {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footer-content-second {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footer-content-third {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.button-input {
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  padding: 1rem 2rem;
+  border-radius: 20px 0 0 20px;
+  border: none;
+  color: black;
+  font-size: 16px;
+}
+
+.button-input button {
+  translate: -26px 0;
+}
